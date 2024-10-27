@@ -14,7 +14,7 @@ public class Metodos {
             EI.setApellido(JOptionPane.showInputDialog("Ingrese el apellido"));
             EI.setTelefono(JOptionPane.showInputDialog("Ingrese el telefono"));
             EI.setNumero(Integer.parseInt(JOptionPane.showInputDialog("Ingrese el semestre actual")));
-            EI.setPromedio_acum1(Float.parseFloat(JOptionPane.showInputDialog("Ingrese su promedio")));
+            EI.setPromedio_acum1(Float.parseFloat(JOptionPane.showInputDialog("Ingrese su promedio").replace(",",".")));
             EI.setSerial(JOptionPane.showInputDialog("Ingrese el serial"));
             lista1.add(EI);
             int opt = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar", JOptionPane.YES_NO_OPTION);
@@ -23,7 +23,19 @@ public class Metodos {
             }
             return lista1;
         }
-         
+    public void MostrarRegistro (LinkedList<EstudianteIng> lista1){
+        for (EstudianteIng EI : lista1){
+            JOptionPane.showMessageDialog(null, "La cédula es: " + EI.getCedula() + "\n"
+               + "Nombre: " + EI.getNombre() + "\n"
+               + "Apellido: " + EI.getApellido() + "\n"
+               + "Teléfono: " + EI.getTelefono() + "\n"
+               + "Semestre actual: " + EI.getNumero() + "\n"
+               + "Promedio acumulado: " + EI.getPromedio_acum1() + "\n"
+               + "Serial actual: " + EI.getSerial());
+            
+        }
+
+    }
 
     }
     
