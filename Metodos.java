@@ -9,8 +9,28 @@ public class Metodos {
         boolean continuar = true;
         while (continuar == true) {
             EstudianteIng EI = new EstudianteIng();
-            EI.setCedula(JOptionPane.showInputDialog("Ingrese la cédula"));
-            EI.setNombre(JOptionPane.showInputDialog("Ingrese el nombre"));
+            boolean Validacion_cedula = false;
+            while (!Validacion_cedula) {
+                String ValidezCedula = JOptionPane.showInputDialog("Ingrese la cédula: ");
+                if (ValidezCedula == null || ValidezCedula.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se ha ingresado una cédula válida!", "Error de entrada",
+                            JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+            EI.setCedula(ValidezCedula);
+            Validacion_cedula = true;
+            }
+            boolean Validacion_nombre = false;
+            while (!Validacion_nombre){
+                String Validez_nombre = JOptionPane.showInputDialog("Ingrese el nombre del estudiante");
+                if (Validez_nombre ==null || Validez_nombre.trim().isEmpty()){
+                JOptionPane.showMessageDialog(null, "No se ha ingresado nombre correctamente!", "Error de entrada",
+                            JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+            EI.setNombre(Validez_nombre);
+            Validacion_nombre = true;
+            }
             EI.setApellido(JOptionPane.showInputDialog("Ingrese el apellido"));
             EI.setTelefono(JOptionPane.showInputDialog("Ingrese el telefono"));
             boolean ValidezSemestre = false;
@@ -46,9 +66,6 @@ public class Metodos {
                             "Error de entrada", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            // EI.setPromedio_acum1(
-            // Float.parseFloat(JOptionPane.showInputDialog("Ingrese su
-            // promedio").replace(",", ".")));
             EI.setSerial(JOptionPane.showInputDialog("Ingrese el serial"));
             lista1.add(EI);
             int opt = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",
@@ -60,20 +77,20 @@ public class Metodos {
     }
 
     public void MostrarRegistro1(LinkedList<EstudianteIng> lista1) {
-        if (lista1.isEmpty()){
+        if (lista1.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista está vacía");
         } else {
-        for (EstudianteIng EI : lista1) {
-            JOptionPane.showMessageDialog(null, "La cédula es: " + EI.getCedula() + "\n"
-                    + "Nombre: " + EI.getNombre() + "\n"
-                    + "Apellido: " + EI.getApellido() + "\n"
-                    + "Teléfono: " + EI.getTelefono() + "\n"
-                    + "Semestre actual: " + EI.getNumero() + "\n"
-                    + "Promedio acumulado: " + EI.getPromedio_acum1() + "\n"
-                    + "Serial actual: " + EI.getSerial());
+            for (EstudianteIng EI : lista1) {
+                JOptionPane.showMessageDialog(null, "La cédula es: " + EI.getCedula() + "\n"
+                        + "Nombre: " + EI.getNombre() + "\n"
+                        + "Apellido: " + EI.getApellido() + "\n"
+                        + "Teléfono: " + EI.getTelefono() + "\n"
+                        + "Semestre actual: " + EI.getNumero() + "\n"
+                        + "Promedio acumulado: " + EI.getPromedio_acum1() + "\n"
+                        + "Serial actual: " + EI.getSerial());
 
+            }
         }
-    }
     }
 
     public LinkedList<Computador> IngresarRegistro2(LinkedList<Computador> lista2) {
@@ -117,74 +134,77 @@ public class Metodos {
                 }
             }
             boolean Check_sistema = false;
-            while (!Check_sistema){
-                String Sist_Op = JOptionPane.showInputDialog("Ingrese el sistema operativo requerido\n" + "1- Windows 7 \n" + "2- Windows 10 \n" + "3- Windows 11 \n");
-                if(Sist_Op == null || Sist_Op.trim().isEmpty()){
+            while (!Check_sistema) {
+                String Sist_Op = JOptionPane.showInputDialog("Ingrese el sistema operativo requerido\n"
+                        + "1- Windows 7 \n" + "2- Windows 10 \n" + "3- Windows 11 \n");
+                if (Sist_Op == null || Sist_Op.trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una opción válida",
-                    "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
                     continue;
 
-            }
-           
-                if (Sist_Op.equals("1")){
+                }
+
+                if (Sist_Op.equals("1")) {
                     CP.setSistemaop("Windows 7");
-                    JOptionPane.showMessageDialog(null,"Has agregado Windows 7 como sistema operativo");
+                    JOptionPane.showMessageDialog(null, "Has agregado Windows 7 como sistema operativo");
                     Check_sistema = true;
-                } else if (Sist_Op.equals("2")){
+                } else if (Sist_Op.equals("2")) {
                     CP.setSistemaop("Windows 10");
-                    JOptionPane.showMessageDialog(null,"Has agregado Windows 10 como sistema operativo");
+                    JOptionPane.showMessageDialog(null, "Has agregado Windows 10 como sistema operativo");
                     Check_sistema = true;
-                } else if (Sist_Op.equals("3")){
+                } else if (Sist_Op.equals("3")) {
                     CP.setSistemaop("Windows 11");
-                    JOptionPane.showMessageDialog(null,"Has agregado Windows 11 como sistema operativo");
+                    JOptionPane.showMessageDialog(null, "Has agregado Windows 11 como sistema operativo");
                     Check_sistema = true;
                 } else {
-                    JOptionPane.showMessageDialog(null,"No has seleccionado una opción válida");
+                    JOptionPane.showMessageDialog(null, "No has seleccionado una opción válida");
                 }
-               
-            
+
             }
             boolean check_proc = false;
-            while (!check_proc){
-                String Selec_proc = JOptionPane.showInputDialog("Ingrese el procesador del equipo\n" + "1- AMD Ryzen \n" + "2- Intel® Core™ i5. \n");
-                if(Selec_proc == null || Selec_proc.trim().isEmpty()){
+            while (!check_proc) {
+                String Selec_proc = JOptionPane.showInputDialog(
+                        "Ingrese el procesador del equipo\n" + "1- AMD Ryzen \n" + "2- Intel® Core™ i5. \n");
+                if (Selec_proc == null || Selec_proc.trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una opción válida",
-                    "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
                     continue;
+                }
+                if (Selec_proc.equals("1")) {
+                    CP.setProcesador("AMD Ryzen");
+                    JOptionPane.showMessageDialog(null, "Has agregado AMD Ryzen como procesador del equipo");
+                    check_proc = true;
+                } else if (Selec_proc.equals("2")) {
+                    CP.setProcesador("Intel® Core™ i5");
+                    JOptionPane.showMessageDialog(null, "Has agregado Intel® Core™ i5 como procesador del equipo");
+                    check_proc = true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "No has seleccionado una opción válida");
+                }
             }
-            if (Selec_proc.equals("1")){
-                CP.setProcesador("AMD Ryzen");
-                JOptionPane.showMessageDialog(null,"Has agregado AMD Ryzen como procesador del equipo");
-                check_proc = true;
-            } else if (Selec_proc.equals("2")){
-                CP.setProcesador("Intel® Core™ i5");
-                JOptionPane.showMessageDialog(null,"Has agregado Intel® Core™ i5 como procesador del equipo");
-                check_proc = true;
-            } else {
-                JOptionPane.showMessageDialog(null,"No has seleccionado una opción válida");
-            }
-            }
-            //CP.setProcesador(JOptionPane.showInputDialog("Ingrese el procesador del equipo"));
+            // CP.setProcesador(JOptionPane.showInputDialog("Ingrese el procesador del
+            // equipo"));
             lista2.add(CP);
-            int opt2 = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",JOptionPane.YES_NO_OPTION);
+            int opt2 = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",
+                    JOptionPane.YES_NO_OPTION);
             continuar1 = (opt2 == JOptionPane.YES_OPTION);
         }
-    return lista2;
+        return lista2;
 
     }
+
     public void MostrarRegistro2(LinkedList<Computador> lista2) {
-        if (lista2.isEmpty()){
+        if (lista2.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista está vacía");
         } else {
-        for (Computador CP : lista2) {
-            JOptionPane.showMessageDialog(null, "El serial es " + CP.getSerial() + "\n"
-                    + "Marca: " + CP.getMarca() + "\n"
-                    + "Memoria de: " + CP.getTamaño() + "\n"
-                    + "Precio: " + CP.getPrecio() + "\n"
-                    + "Sistema operativo: " + CP.getSistemaop() + "\n"
-                    + "Procesador del equipo: " + CP.getProcesador());
+            for (Computador CP : lista2) {
+                JOptionPane.showMessageDialog(null, "El serial es " + CP.getSerial() + "\n"
+                        + "Marca: " + CP.getMarca() + "\n"
+                        + "Memoria de: " + CP.getTamaño() + "\n"
+                        + "Precio: " + CP.getPrecio() + "\n"
+                        + "Sistema operativo: " + CP.getSistemaop() + "\n"
+                        + "Procesador del equipo: " + CP.getProcesador());
+            }
         }
-    }
-
     }
 }
