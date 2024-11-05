@@ -17,22 +17,45 @@ public class Metodos {
                             JOptionPane.ERROR_MESSAGE);
                     continue;
                 }
-            EI.setCedula(ValidezCedula);
-            Validacion_cedula = true;
+                EI.setCedula(ValidezCedula);
+                Validacion_cedula = true;
             }
             boolean Validacion_nombre = false;
-            while (!Validacion_nombre){
+            while (!Validacion_nombre) {
                 String Validez_nombre = JOptionPane.showInputDialog("Ingrese el nombre del estudiante");
-                if (Validez_nombre ==null || Validez_nombre.trim().isEmpty()){
-                JOptionPane.showMessageDialog(null, "No se ha ingresado nombre correctamente!", "Error de entrada",
+                if (Validez_nombre == null || Validez_nombre.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se ha ingresado nombre correctamente!", "Error de entrada",
                             JOptionPane.ERROR_MESSAGE);
                     continue;
                 }
-            EI.setNombre(Validez_nombre);
-            Validacion_nombre = true;
+                EI.setNombre(Validez_nombre);
+                Validacion_nombre = true;
             }
-            EI.setApellido(JOptionPane.showInputDialog("Ingrese el apellido"));
-            EI.setTelefono(JOptionPane.showInputDialog("Ingrese el telefono"));
+            boolean Validacion_apellido = false;
+            while (!Validacion_apellido) {
+                String Validez_apellido = JOptionPane.showInputDialog("Ingrese el apellido");
+                if (Validez_apellido == null || Validez_apellido.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se ha ingresado apellido correctamente!",
+                            "Error de entrada",
+                            JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+                EI.setApellido(Validez_apellido);
+                Validacion_apellido = true;
+            }
+            boolean Validacion_telefono = false;
+            while (!Validacion_telefono) {
+                String Validez_telefono = JOptionPane.showInputDialog("Ingrese el telefóno");
+                if (Validez_telefono == null || Validez_telefono.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "No se ha ingresado el número de teléfono correctamente!",
+                            "Error de entrada",
+                            JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+                EI.setTelefono(Validez_telefono);
+                Validacion_telefono = true;
+
+            }
             boolean ValidezSemestre = false;
             while (!ValidezSemestre) { // Bucle hasta que se tenga un semestre válido
                 String Verif_semestre = JOptionPane.showInputDialog("Ingrese el semestre actual");
@@ -84,11 +107,9 @@ public class Metodos {
                 JOptionPane.showMessageDialog(null, "La cédula es: " + EI.getCedula() + "\n"
                         + "Nombre: " + EI.getNombre() + "\n"
                         + "Apellido: " + EI.getApellido() + "\n"
-                        + "Teléfono: " + EI.getTelefono() + "\n"
-                        + "Semestre actual: " + EI.getNumero() + "\n"
-                        + "Promedio acumulado: " + EI.getPromedio_acum1() + "\n"
-                        + "Serial actual: " + EI.getSerial());
-
+                        + "Telefono: " + EI.getTelefono() + "\n"
+                        + "Semestre: " + EI.getNumero() + "\n"
+                        + "Promedio académico: " + EI.getPromedio_acum1() + "\n" + "Serial: " + EI.getSerial());
             }
         }
     }
