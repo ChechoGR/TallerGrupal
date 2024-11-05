@@ -13,10 +13,11 @@ public class Principal {
                         "Opción 2: Llenar lista estudiantes diseño\n" +
                         "Opción 3: Llenar lista de computadores\n" + "Opción 4: Llenar lista de tabletas\n"
                         + "Opción 5: Importar lista\n" + "Opción 6: Exportar lista");
-        
+
         LinkedList<EstudianteIng> lista1 = new LinkedList<>();
         LinkedList<Computador> lista2 = new LinkedList<>();
         LinkedList<EstudianteDis> lista3 = new LinkedList<>();
+        LinkedList<Tableta> lista4 = new LinkedList<>();
         boolean bandera = true;
         while (bandera) {
             int seleccion_opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese una opción del menú: "));
@@ -31,6 +32,7 @@ public class Principal {
                     lista2 = m.IngresarRegistro2(lista2);
                     break;
                 case 4: // Llenar lista Tableta
+                    lista4 = m.IngresarRegistro4(lista4);
                     break;
                 case 5: // Importar listas
                     int importar_lista = Integer
@@ -69,12 +71,13 @@ public class Principal {
                 case 9: // Mostrar lista computadores
                     m.MostrarRegistro2(lista2);
                     break;
-                case 10:
+                case 10: // Mostrar lista Tabletas
+                    m.MostrarRegistro4(lista4);
                     break;
                 case 11:
                     JOptionPane.showMessageDialog(null, "Finalizando el programa \n" + "Vuelva pronto!");
                     bandera = false;
-                    
+
                     break;
             }
         }

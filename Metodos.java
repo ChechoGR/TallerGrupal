@@ -366,6 +366,7 @@ public class Metodos {
         }
         return lista3;
     }
+
     public void MostrarRegistro3(LinkedList<EstudianteDis> lista3) {
         if (lista3.isEmpty()) {
             JOptionPane.showMessageDialog(null, "La lista está vacía");
@@ -377,6 +378,149 @@ public class Metodos {
                         + "Telefono: " + ED.getTelefono() + "\n"
                         + "Modalidad: " + ED.getModalidad() + "\n"
                         + "Cantidad asignaturas: " + ED.getAsignaturas() + "\n" + "Serial: " + ED.getSerial());
+            }
+        }
+    }
+
+    public LinkedList<Tableta> IngresarRegistro4(LinkedList<Tableta> lista4) {
+        boolean continuar1 = true;
+        while (continuar1 == true) {
+            Tableta TB = new Tableta();
+            TB.setSerial(JOptionPane.showInputDialog("Ingrese el serial del equipo"));
+            boolean Validacion_marca = false;
+            while (!Validacion_marca) {
+                String Val_marca = JOptionPane.showInputDialog("Ingrese la marca de la tableta");
+                if (Val_marca == null || Val_marca.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar la marca de la tableta",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+                TB.setMarca(Val_marca);
+                Validacion_marca = true;
+            }
+            boolean ValTamaño = false;
+            while (!ValTamaño) {
+                String Val_tamaño = JOptionPane.showInputDialog(("Ingrese el tamaño (pantalla) del equipo"));
+                if (Val_tamaño == null || Val_tamaño.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una tamaño válido",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+                Val_tamaño = Val_tamaño.replace(",", ".");
+                float Val_tamaño1 = Float.parseFloat(Val_tamaño);
+                try {
+                    if (Val_tamaño1 < 8) {
+                        JOptionPane.showMessageDialog(null,
+                                "Entrada no válida. Debe ingresar una tamaño mayor a 8' y menor a 15' ",
+                                "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                        continue;
+
+                    } else if (Val_tamaño1 > 15) {
+                        JOptionPane.showMessageDialog(null,
+                                "Entrada no válida. Debe ingresar una tamaño mayor a 10' y menor a 25' ",
+                                "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                        continue;
+                    } else {
+                        TB.setTamaño((Val_tamaño1));
+                        ValTamaño = true;
+                    }
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Error: Debe ingresar un número válido.",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            boolean ValPrecio = false;
+            while (!ValPrecio) {
+                String Val_Precio = JOptionPane.showInputDialog(("Ingrese el precio del equipo"));
+                if (Val_Precio == null || Val_Precio.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar un precio válido",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+                Val_Precio = Val_Precio.replace(",", ".");
+                try {
+                    TB.setPrecio(Float.parseFloat(Val_Precio));
+                    ValPrecio = true;
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Error: Debe ingresar un número válido.",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            boolean Check_almacenamiento = false;
+            while (!Check_almacenamiento) {
+                String Check_almc = JOptionPane.showInputDialog("Ingrese el almacenamiento requerido\n"
+                        + "1- 256 GB \n" + "2- 512 GB \n" + "3- 1 TB \n");
+                if (Check_almc == null || Check_almc.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una opción válida",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+
+                }
+
+                if (Check_almc.equals("1")) {
+                    TB.setAlmacenamiento("256 GB");
+                    JOptionPane.showMessageDialog(null, "El equipo cuenta con 256 GB de memoria");
+                    Check_almacenamiento = true;
+                } else if (Check_almc.equals("2")) {
+                    TB.setAlmacenamiento("512 GB");
+                    JOptionPane.showMessageDialog(null, "El equipo cuenta con 512 GB de memoria");
+                    Check_almacenamiento = true;
+                } else if (Check_almc.equals("3")) {
+                    TB.setAlmacenamiento("1 TB");
+                    JOptionPane.showMessageDialog(null, "El equipo cuenta con 1 TB de memoria");
+                    Check_almacenamiento = true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "No has seleccionado una opción válida");
+                }
+
+            }
+            boolean Verif_Peso = false;
+            while (!Verif_Peso) {
+                String VerificacionPeso = JOptionPane.showInputDialog("Ingrese el peso del equipo en kg");
+                if (VerificacionPeso == null || VerificacionPeso.trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar un peso válido",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                }
+                try {
+                    float VerificacionPeso1 = Float.parseFloat(VerificacionPeso);
+                    if (VerificacionPeso1 <= 0) {
+                        JOptionPane.showMessageDialog(null, "Se ha ingresado un peso no válido, verifique nuevamente");
+                    } else if (VerificacionPeso1 <= 3) {
+                        TB.setPeso(VerificacionPeso1);
+                        JOptionPane.showMessageDialog(null, "El peso del equipo es " + VerificacionPeso1 + "kg");
+                        Verif_Peso = true;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El peso ingresado es muy alto. Verificar nuevamente");
+                    }
+
+                } catch (NumberFormatException e) {
+                    JOptionPane.showMessageDialog(null, "Debe ingresar un número válido.", "Error de entrada",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+
+            }
+
+            lista4.add(TB);
+            int opt2 = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",
+                    JOptionPane.YES_NO_OPTION);
+            continuar1 = (opt2 == JOptionPane.YES_OPTION);
+        }
+        return lista4;
+
+    }
+
+    public void MostrarRegistro4(LinkedList<Tableta> lista4) {
+        if (lista4.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "La lista está vacía");
+        } else {
+            for (Tableta TB : lista4) {
+                JOptionPane.showMessageDialog(null, "El serial es " + TB.getSerial() + "\n"
+                        + "Marca: " + TB.getMarca() + "\n"
+                        + "Tamaño pantalla: " + TB.getTamaño() + "\n"
+                        + "Precio: " + TB.getPrecio() + "\n"
+                        + "Almacenamiento: " + TB.getAlmacenamiento() + "\n"
+                        + "Peso: " + TB.getPeso());
             }
         }
     }
