@@ -1,6 +1,5 @@
 import java.util.LinkedList;
 import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 public class Metodos {
@@ -61,6 +60,9 @@ public class Metodos {
     }
 
     public void MostrarRegistro1(LinkedList<EstudianteIng> lista1) {
+        if (lista1.isEmpty()){
+            JOptionPane.showMessageDialog(null, "La lista está vacía");
+        } else {
         for (EstudianteIng EI : lista1) {
             JOptionPane.showMessageDialog(null, "La cédula es: " + EI.getCedula() + "\n"
                     + "Nombre: " + EI.getNombre() + "\n"
@@ -71,7 +73,7 @@ public class Metodos {
                     + "Serial actual: " + EI.getSerial());
 
         }
-
+    }
     }
 
     public LinkedList<Computador> IngresarRegistro2(LinkedList<Computador> lista2) {
@@ -168,6 +170,21 @@ public class Metodos {
             continuar1 = (opt2 == JOptionPane.YES_OPTION);
         }
     return lista2;
+
+    }
+    public void MostrarRegistro2(LinkedList<Computador> lista2) {
+        if (lista2.isEmpty()){
+            JOptionPane.showMessageDialog(null, "La lista está vacía");
+        } else {
+        for (Computador CP : lista2) {
+            JOptionPane.showMessageDialog(null, "El serial es " + CP.getSerial() + "\n"
+                    + "Marca: " + CP.getMarca() + "\n"
+                    + "Memoria de: " + CP.getTamaño() + "\n"
+                    + "Precio: " + CP.getPrecio() + "\n"
+                    + "Sistema operativo: " + CP.getSistemaop() + "\n"
+                    + "Procesador del equipo: " + CP.getProcesador());
+        }
+    }
 
     }
 }

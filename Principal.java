@@ -63,7 +63,8 @@ public class Principal {
                     break;
                 case 8: // Mostrar lista diseño
                     break;
-                case 9:
+                case 9: // Mostrar lista computadores
+                    m.MostrarRegistro2(lista2);
                     break;
                 case 10:
                     break;
