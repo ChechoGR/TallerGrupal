@@ -2,9 +2,9 @@ public class EstudianteDis {
     String Cedula; //cadena de texto, no se permiten caracteres especiales.
     String Nombre; //cadena de texto, no se permiten números ni caracteres especiales.
     String Apellido; //cadena de texto, no se permiten números ni caracteres especiales
-    String Teléfono; //cadena de texto, no se permiten caracteres especiales.
+    String Telefono; //cadena de texto, no se permiten caracteres especiales.
     String Modalidad; //Modalidad: a distancia o presencial
-    float Asignaturas; //Numero flotante.
+    int Asignaturas; //Numero entero.
     String Serial;
     public String getCedula() {
         return Cedula;
@@ -24,11 +24,11 @@ public class EstudianteDis {
     public void setApellido(String apellido) {
         Apellido = apellido;
     }
-    public String getTeléfono() {
-        return Teléfono;
+    public String getTelefono() {
+        return Telefono;
     }
-    public void setTeléfono(String teléfono) {
-        Teléfono = teléfono;
+    public void setTelefono(String telefono) {
+        Telefono = telefono;
     }
     public String getModalidad() {
         return Modalidad;
@@ -36,10 +36,10 @@ public class EstudianteDis {
     public void setModalidad(String modalidad) {
         Modalidad = modalidad;
     }
-    public float getAsignaturas() {
+    public int getAsignaturas() {
         return Asignaturas;
     }
-    public void setAsignaturas(float asignaturas) {
+    public void setAsignaturas(int asignaturas) {
         Asignaturas = asignaturas;
     }
     public String getSerial() {

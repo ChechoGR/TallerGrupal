@@ -16,6 +16,7 @@ public class Principal {
         
         LinkedList<EstudianteIng> lista1 = new LinkedList<>();
         LinkedList<Computador> lista2 = new LinkedList<>();
+        LinkedList<EstudianteDis> lista3 = new LinkedList<>();
         boolean bandera = true;
         while (bandera) {
             int seleccion_opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese una opción del menú: "));
@@ -24,6 +25,7 @@ public class Principal {
                     lista1 = m.IngresarRegistro1(lista1); // Se guarda en lista para la persistencia de datos
                     break;
                 case 2: // Llenar lista estudiantes diseño
+                    lista3 = m.IngresarRegistro3(lista3);
                     break;
                 case 3: // Llenar lista computador
                     lista2 = m.IngresarRegistro2(lista2);
@@ -62,6 +64,7 @@ public class Principal {
                     m.MostrarRegistro1(lista1);
                     break;
                 case 8: // Mostrar lista diseño
+                    m.MostrarRegistro3(lista3);
                     break;
                 case 9: // Mostrar lista computadores
                     m.MostrarRegistro2(lista2);
