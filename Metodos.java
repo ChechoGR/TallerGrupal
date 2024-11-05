@@ -3,7 +3,7 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class Metodos {
-    Scanner sc = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in); 
 
     public LinkedList<EstudianteIng> IngresarRegistro1(LinkedList<EstudianteIng> lista1) {
         boolean continuar = true;
@@ -119,19 +119,41 @@ public class Metodos {
         while (continuar1 == true) {
             Computador CP = new Computador();
             CP.setSerial(JOptionPane.showInputDialog("Ingrese el serial del equipo"));
-            CP.setMarca(JOptionPane.showInputDialog("Ingrese la marca del equipo"));
+            boolean Validacion_marca = false;
+            while (!Validacion_marca){
+                String Val_marca = JOptionPane.showInputDialog("Ingrese la marca del equipo");
+                    if (Val_marca ==null || Val_marca.trim().isEmpty()){
+                        JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar la marca del equipo",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                    }
+                CP.setMarca(Val_marca);
+                Validacion_marca  = true;
+            }
             boolean ValTamaño = false;
             while (!ValTamaño) {
-                String Val_tamaño = JOptionPane.showInputDialog(("Ingrese el tamaño (memoria)del equipo"));
+                String Val_tamaño = JOptionPane.showInputDialog(("Ingrese el tamaño (pantalla) del equipo"));
                 if (Val_tamaño == null || Val_tamaño.trim().isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una memoria válida",
+                    JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una tamaño válido",
                             "Error de entrada", JOptionPane.ERROR_MESSAGE);
                     continue;
                 }
                 Val_tamaño = Val_tamaño.replace(",", ".");
+                float Val_tamaño1 = Float.parseFloat(Val_tamaño);
                 try {
-                    CP.setTamaño(Float.parseFloat(Val_tamaño));
+                    if (Val_tamaño1 < 10){
+                        JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una tamaño mayor a 10' y menor a 25' ",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+
+                    } else if (Val_tamaño1 > 25){
+                        JOptionPane.showMessageDialog(null, "Entrada no válida. Debe ingresar una tamaño mayor a 10' y menor a 25' ",
+                            "Error de entrada", JOptionPane.ERROR_MESSAGE);
+                    continue;
+                    } else {
+                    CP.setTamaño((Val_tamaño1));
                     ValTamaño = true;
+                    }
                 } catch (NumberFormatException e) {
                     JOptionPane.showMessageDialog(null, "Error: Debe ingresar un número válido.",
                             "Error de entrada", JOptionPane.ERROR_MESSAGE);
