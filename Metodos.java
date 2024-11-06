@@ -417,7 +417,7 @@ public class Metodos {
 
                     } else if (Val_tamaño1 > 15) {
                         JOptionPane.showMessageDialog(null,
-                                "Entrada no válida. Debe ingresar una tamaño mayor a 10' y menor a 25' ",
+                                "Entrada no válida. Debe ingresar una tamaño mayor a 10' y menor a 15' ",
                                 "Error de entrada", JOptionPane.ERROR_MESSAGE);
                         continue;
                     } else {
