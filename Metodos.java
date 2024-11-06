@@ -524,4 +524,25 @@ public class Metodos {
             }
         }
     }
+
+    public LinkedList<EstudianteIng> ModificarRegistro1(LinkedList<EstudianteIng> lista1) {
+        String cedula1 = JOptionPane.showInputDialog("Ingrese la cédula a la cual se le modificará el nombre");
+        JOptionPane.showMessageDialog(null, "Buscando al usuario " + cedula1 + " para modificar su nombre");
+        boolean cedulaEncontrada = false;
+        for (EstudianteIng EI : lista1) {
+            if (EI.getCedula().equals(cedula1)) {
+                cedulaEncontrada = true;
+                String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nombre a cambiar");
+                EI.setNombre(nuevoNombre);
+                JOptionPane.showMessageDialog(null, "Nombre modificado exitosamente a: " + nuevoNombre);
+                break; // Termina el bucle al encontrar y modificar la cédula
+            }
+        }
+
+        if (!cedulaEncontrada) {
+            JOptionPane.showMessageDialog(null, "No se encontró un estudiante con la cédula ingresada.");
+        }
+
+        return lista1;
+    }
 }
