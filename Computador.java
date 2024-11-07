@@ -5,6 +5,7 @@ public class Computador {
     float Precio;
     String Sistemaop;
     String Procesador;
+    boolean Prestamo;
 
     public String getSerial() {
         return Serial;
@@ -52,6 +53,14 @@ public class Computador {
 
     public void setProcesador(String procesador) {
         Procesador = procesador;
+    }
+
+    public boolean isPrestamo() {
+        return Prestamo;
+    }
+
+    public void setPrestamo(boolean prestamo) {
+        Prestamo = prestamo;
     }
 
 }

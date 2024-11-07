@@ -228,8 +228,7 @@ public class Metodos {
                     JOptionPane.showMessageDialog(null, "No has seleccionado una opción válida");
                 }
             }
-            // CP.setProcesador(JOptionPane.showInputDialog("Ingrese el procesador del
-            // equipo"));
+            CP.setPrestamo(false);
             lista2.add(CP);
             int opt2 = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",
                     JOptionPane.YES_NO_OPTION);
@@ -249,7 +248,8 @@ public class Metodos {
                         + "Memoria de: " + CP.getTamaño() + "\n"
                         + "Precio: " + CP.getPrecio() + "\n"
                         + "Sistema operativo: " + CP.getSistemaop() + "\n"
-                        + "Procesador del equipo: " + CP.getProcesador());
+                        + "Procesador del equipo: " + CP.getProcesador() + "\n" + "¿Equipo prestado? "
+                        + CP.isPrestamo());
             }
         }
     }
@@ -502,7 +502,7 @@ public class Metodos {
                 }
 
             }
-
+            TB.setPrestamo(false);
             lista4.add(TB);
             int opt2 = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",
                     JOptionPane.YES_NO_OPTION);
@@ -522,7 +522,7 @@ public class Metodos {
                         + "Tamaño pantalla: " + TB.getTamaño() + "\n"
                         + "Precio: " + TB.getPrecio() + "\n"
                         + "Almacenamiento: " + TB.getAlmacenamiento() + "\n"
-                        + "Peso: " + TB.getPeso());
+                        + "Peso: " + TB.getPeso() + "\n" + "¿Equipo prestado? " + TB.isPrestamo());
             }
         }
     }

@@ -5,6 +5,15 @@ public class Tableta {
     float Precio;
     String Almacenamiento;
     float Peso;
+    boolean Prestamo;
+
+    public boolean isPrestamo() {
+        return Prestamo;
+    }
+
+    public void setPrestamo(boolean prestamo) {
+        Prestamo = prestamo;
+    }
 
     public String getSerial() {
         return Serial;
