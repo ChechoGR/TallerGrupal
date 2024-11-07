@@ -1,3 +1,4 @@
+
 //Main, solo para añadir los métodos
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
@@ -108,10 +109,12 @@ public class Principal {
 
                                 break;
                             case 2:
+                                lista3 = m.Importar2();
                                 bandera3 = false;
 
                                 break;
                             case 3:
+                                lista2 = m.Importar3();
                                 bandera3 = false;
 
                                 break;
@@ -145,6 +148,7 @@ public class Principal {
                                 bandera4 = false;
                                 break;
                             case 2:
+                                m.Exportar2(lista3);
                                 bandera4 = false;
                                 break;
                             case 3:

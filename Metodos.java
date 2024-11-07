@@ -672,13 +672,17 @@ public class Metodos {
             JOptionPane.showMessageDialog(null, "No hay préstamos en el momento en la facultad de ingeniería");
         } else {
             for (Prestamo1 PS1 : listap) {
-                JOptionPane.showMessageDialog(null, "Prestamos: \n" + "Nombre estudiante: \n" + PS1.getEstudianteIng().getNombre() + "Serial del PC prestado: \n" + PS1.getComputador().getSerial() );
+                JOptionPane.showMessageDialog(null,
+                        "Prestamos: \n" + "Nombre estudiante: \n" + PS1.getEstudianteIng().getNombre()
+                                + "Serial del PC prestado: \n" + PS1.getComputador().getSerial());
             }
         }
     }
-    public LinkedList<Prestamo2> RegistrarPrestamo2 (LinkedList<EstudianteDis> lista3, LinkedList<Tableta> lista4, LinkedList<Prestamo2> listad){
+
+    public LinkedList<Prestamo2> RegistrarPrestamo2(LinkedList<EstudianteDis> lista3, LinkedList<Tableta> lista4,
+            LinkedList<Prestamo2> listad) {
         boolean continuar6 = true;
-        while(continuar6 == true){
+        while (continuar6 == true) {
             Prestamo2 PS2 = new Prestamo2();
             String cedula_buscar = JOptionPane
                     .showInputDialog("Ingrese la cédula del estudiante que solicita el préstamo: \n"
@@ -707,13 +711,13 @@ public class Metodos {
             if (serial_tableta.equals("0")) {
                 continuar6 = false;
                 break;
-             }
-             if (serial_tableta == null || serial_tableta.trim().isEmpty()) {
+            }
+            if (serial_tableta == null || serial_tableta.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Serial de la tableta no ingresado. Intente de nuevo.");
                 continue; // vuelve al inicio del bucle
             }
             Tableta tabletica = null;
-            for(Tableta TB : lista4){
+            for (Tableta TB : lista4) {
                 if (TB.getSerial().equals(serial_tableta) && !TB.isPrestamo()) {
                     tabletica = TB;
                     break;
@@ -734,16 +738,37 @@ public class Metodos {
             int opcion = JOptionPane.showConfirmDialog(null, "¿Desea registrar otro préstamo?", "Continuar",
                     JOptionPane.YES_NO_OPTION);
             continuar6 = (opcion == JOptionPane.YES_OPTION);
-         }
+        }
         return listad;
     }
-    public LinkedList<EstudianteIng> Importar1(){
+
+    public LinkedList<EstudianteIng> Importar1() {
         Importar1 i1 = new Importar1();
         LinkedList<EstudianteIng> lista1 = i1.ImportarA1();
         return lista1;
     }
-    public void Exportar1(LinkedList<EstudianteIng> lista1){
+
+    public void Exportar1(LinkedList<EstudianteIng> lista1) {
         Exportar1 e1 = new Exportar1();
         e1.Exportararchivo1(lista1);
+    }
+
+    public LinkedList<EstudianteDis> Importar2() {
+        Importar2 i2 = new Importar2();
+        LinkedList<EstudianteDis> lista3 = i2.ImportarA2();
+        return lista3;
+    }
+
+    public void Exportar2(LinkedList<EstudianteDis> lista3) {
+        Exportar2 e2 = new Exportar2();
+        e2.Exportararchivo2(lista3);
+
+    }
+
+    public LinkedList<Computador> Importar3() {
+        Importar1 i3 = new Importar1();
+        LinkedList<Computador> lista2 = i3.ImportarA3();
+        return lista2;
+
     }
 }
