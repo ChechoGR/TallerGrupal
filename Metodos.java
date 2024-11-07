@@ -611,7 +611,8 @@ public class Metodos {
         while (continuar5 == true) {
             Prestamo1 PS1 = new Prestamo1();
             String cedula_buscar = JOptionPane
-                    .showInputDialog("Ingrese la cédula del estudiante que solicita el préstamo: \n" + "Para volver al menú principal, ingrese 0 \n");
+                    .showInputDialog("Ingrese la cédula del estudiante que solicita el préstamo: \n"
+                            + "Para volver al menú principal, ingrese 0 \n");
             if (cedula_buscar.equals("0")) {
                 continuar5 = false;
                 break;
@@ -633,6 +634,10 @@ public class Metodos {
             }
             String serial_computador = JOptionPane
                     .showInputDialog("Ingrese el serial del computador para el préstamo: ");
+            if (serial_computador.equals("0")) {
+                continuar5 = false;
+                break;
+            }
             if (serial_computador == null || serial_computador.trim().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Serial del computador no ingresado. Intente de nuevo.");
                 continue; // vuelve al inicio del bucle
@@ -660,5 +665,15 @@ public class Metodos {
             continuar5 = (opcion == JOptionPane.YES_OPTION);
         }
         return listap;
+    }
+
+    public void MostrarRegistro5(LinkedList<Prestamo1> listap) {
+        if (listap.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay préstamos en el momento en la facultad de ingeniería");
+        } else {
+            for (Prestamo1 PS1 : listap) {
+                JOptionPane.showMessageDialog(null, "Prestamos: \n" + "Nombre estudiante: \n" + PS1.getEstudianteIng().getNombre() + "Serial del PC prestado: \n" + PS1.getComputador().getSerial() );
+            }
+        }
     }
 }

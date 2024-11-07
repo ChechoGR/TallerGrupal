@@ -1,5 +1,4 @@
 //Main, solo para añadir los métodos
-
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
@@ -18,7 +17,7 @@ public class Principal {
                     "Seleccione una opción \n" + "Opción 1: Llenar listas \n" +
                     "Opción 2: Mostrar listas \n" +
                     "Opción 3: Importar listas \n" + "Opción 4: Exportar listas\n"
-                    + "Opción 5: Modificar nombre o marca de las listas \n" + "Opción 6: ABIERTA \n"
+                    + "Opción 5: Modificar nombre o marca de las listas \n" + "Opción 6: Inventario préstamos \n"
                     + "Opción 9: Salir del sistema."));
             switch (seleccion_opcion) {
                 case 1: // Llenar lista estudiantes ingenieria
@@ -125,10 +124,8 @@ public class Principal {
                             default:
                                 JOptionPane.showMessageDialog(null, "Opción no válida. Intente de nuevo.");
                                 break;
-
                         }
                     }
-
                     break;
                 case 4: // Exportar listas
                     boolean bandera4 = true;
@@ -198,7 +195,6 @@ public class Principal {
                                 JOptionPane.showMessageDialog(null, "Opción no válida. Intente de nuevo.");
                                 break;
                         }
-
                     }
                     break;
                 case 6: // Realizar préstamo
@@ -218,14 +214,40 @@ public class Principal {
                                 bandera6 = false;
                                 break;
                             case 3:
+                                JOptionPane.showMessageDialog(null, "Volviendo al menú principal");
                                 bandera6 = false;
                                 break;
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opción no válida. Intente de nuevo.");
+                                break;
                         }
-
                     }
-
                     break;
-                case 7:
+                case 7: // Ver inventario préstamos
+                    boolean bandera7 = true;
+                    while (bandera7) {
+                        int seleccion_opcion7 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                "***MENÚ PRÉSTAMOS ESTUDIANTES INGENIERÍA*** \n" +
+                                        "Seleccione una opción \n" + "Opción 1: Ver prestamos a estudiantes Ing. \n" +
+                                        "Opción 2: Ver prestamos a estudiantes Diseño \n" +
+                                        "Opción 3: Volver al menú \n"));
+                        switch (seleccion_opcion7) {
+                            case 1:
+                                m.MostrarRegistro5(listap);
+                                bandera7 = false;
+                                break;
+                            case 2:
+                                bandera7 = false;
+                                break;
+                            case 3:
+                                JOptionPane.showMessageDialog(null, "Volviendo al menú principal");
+                                bandera7 = false;
+                                break;
+                            default:
+                                JOptionPane.showMessageDialog(null, "Opción no válida. Intente de nuevo.");
+                                break;
+                        }
+                    }
                     break;
                 case 8:
                     break;
