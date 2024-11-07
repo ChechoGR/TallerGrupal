@@ -737,4 +737,9 @@ public class Metodos {
          }
         return listad;
     }
+    public LinkedList<EstudianteIng> Importar1(){
+        Importar1 i1 = new Importar1();
+        LinkedList<EstudianteIng> lista1 = i1.ImportarA1();
+        return lista1;
+    }
 }

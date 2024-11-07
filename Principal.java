@@ -103,6 +103,7 @@ public class Principal {
                                         + "Opción 5: Volver al menú \n"));
                         switch (seleccion_opcion4) {
                             case 1:
+                                lista1 = m.Importar1();
                                 bandera3 = false;
 
                                 break;
