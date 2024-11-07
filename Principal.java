@@ -11,6 +11,7 @@ public class Principal {
         LinkedList<Computador> lista2 = new LinkedList<>();
         LinkedList<EstudianteDis> lista3 = new LinkedList<>();
         LinkedList<Tableta> lista4 = new LinkedList<>();
+        LinkedList<Prestamo1> listap = new LinkedList<>();
         boolean bandera = true;
         while (bandera) {
             int seleccion_opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "MENU PRINCIPAL \n" +
@@ -162,7 +163,7 @@ public class Principal {
                         }
                     }
                     break;
-                case 5:
+                case 5: // Modificar nombre o marca
                     boolean bandera5 = true;
                     while (bandera5) {
                         int seleccion_opcion6 = Integer.parseInt(JOptionPane.showInputDialog(null,
@@ -200,7 +201,29 @@ public class Principal {
 
                     }
                     break;
-                case 6:
+                case 6: // Realizar préstamo
+                    boolean bandera6 = true;
+                    while (bandera6) {
+                        int seleccion_opcion7 = Integer.parseInt(JOptionPane.showInputDialog(null,
+                                "***MENÚ PRÉSTAMOS ESTUDIANTES INGENIERÍA*** \n" +
+                                        "Seleccione una opción \n" + "Opción 1: Prestar a estudiantes Ing. \n" +
+                                        "Opción 2: Prestar a estudiantes Diseño \n" +
+                                        "Opción 3: Volver al menú \n"));
+                        switch (seleccion_opcion7) {
+                            case 1:
+                                m.RegistrarPrestamo1(lista1, lista2, listap);
+                                bandera6 = false;
+                                break;
+                            case 2:
+                                bandera6 = false;
+                                break;
+                            case 3:
+                                bandera6 = false;
+                                break;
+                        }
+
+                    }
+
                     break;
                 case 7:
                     break;

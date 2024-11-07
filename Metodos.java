@@ -604,4 +604,61 @@ public class Metodos {
         }
         return lista4;
     }
+
+    public LinkedList<Prestamo1> RegistrarPrestamo1(LinkedList<EstudianteIng> lista1, LinkedList<Computador> lista2,
+            LinkedList<Prestamo1> listap) {
+        boolean continuar5 = true;
+        while (continuar5 == true) {
+            Prestamo1 PS1 = new Prestamo1();
+            String cedula_buscar = JOptionPane
+                    .showInputDialog("Ingrese la cédula del estudiante que solicita el préstamo: \n" + "Para volver al menú principal, ingrese 0 \n");
+            if (cedula_buscar.equals("0")) {
+                continuar5 = false;
+                break;
+            }
+            if (cedula_buscar == null || cedula_buscar.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Cédula no ingresada. Intente de nuevo.");
+                continue; // vuelve al inicio del bucle
+            }
+            EstudianteIng Estudiantico = null;
+            for (EstudianteIng EI : lista1) {
+                if (EI.getCedula().equals(cedula_buscar)) {
+                    Estudiantico = EI;
+                    break;
+                }
+            }
+            if (Estudiantico == null) {
+                JOptionPane.showMessageDialog(null, "Estudiante no encontrado!");
+                continue;
+            }
+            String serial_computador = JOptionPane
+                    .showInputDialog("Ingrese el serial del computador para el préstamo: ");
+            if (serial_computador == null || serial_computador.trim().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Serial del computador no ingresado. Intente de nuevo.");
+                continue; // vuelve al inicio del bucle
+            }
+            Computador computadorSeleccionado = null;
+            for (Computador CP : lista2) {
+                if (CP.getSerial().equals(serial_computador) && !CP.isPrestamo()) {
+                    computadorSeleccionado = CP;
+                    break;
+                }
+            }
+            if (computadorSeleccionado == null) {
+                JOptionPane.showMessageDialog(null, "Computador no encontrado o en préstamo");
+                continue;
+            }
+            PS1.setEstudianteIng(Estudiantico);
+            PS1.setComputador(computadorSeleccionado);
+            Estudiantico.setSerial(computadorSeleccionado.getSerial());
+            computadorSeleccionado.setPrestamo(true);
+            listap.add(PS1);
+            JOptionPane.showMessageDialog(null, "Préstamo registrado con éxito!");
+
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Desea registrar otro préstamo?", "Continuar",
+                    JOptionPane.YES_NO_OPTION);
+            continuar5 = (opcion == JOptionPane.YES_OPTION);
+        }
+        return listap;
+    }
 }
