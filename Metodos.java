@@ -89,7 +89,8 @@ public class Metodos {
                             "Error de entrada", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            EI.setSerial(JOptionPane.showInputDialog("Ingrese el serial"));
+            EI.setSerial("NO PRESTADO");
+            JOptionPane.showMessageDialog(null, "No se tiene equipo en préstamo");
             lista1.add(EI);
             int opt = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",
                     JOptionPane.YES_NO_OPTION);
@@ -357,7 +358,8 @@ public class Metodos {
                             JOptionPane.ERROR_MESSAGE);
                 }
             }
-            ED.setSerial(JOptionPane.showInputDialog("Ingrese el serial"));
+            ED.setSerial("No cuenta aún con préstamo");
+            JOptionPane.showMessageDialog(null, "No se tiene equipo en préstamo");
             lista3.add(ED);
             int opt = JOptionPane.showConfirmDialog(null, "¿Desea ingresar otro registro?", "Continuar",
                     JOptionPane.YES_NO_OPTION);
@@ -544,5 +546,62 @@ public class Metodos {
         }
 
         return lista1;
+    }
+
+    public LinkedList<EstudianteDis> ModificarRegistro2(LinkedList<EstudianteDis> lista3) {
+        String cedula2 = JOptionPane.showInputDialog("Ingrese la cédula a la cual se le modificará el nombre");
+        JOptionPane.showMessageDialog(null, "Buscando al usuario " + cedula2 + " para modificar su nombre");
+        boolean cedulaEncontrada = false;
+        for (EstudianteDis ED : lista3) {
+            if (ED.getCedula().equals(cedula2)) {
+                cedulaEncontrada = true;
+                String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nombre a cambiar");
+                ED.setNombre(nuevoNombre);
+                JOptionPane.showMessageDialog(null, "Nombre modificado exitosamente a: " + nuevoNombre);
+                break; // Termina el bucle al encontrar y modificar la cédula
+            }
+        }
+        if (!cedulaEncontrada) {
+            JOptionPane.showMessageDialog(null, "No se encontró un estudiante con la cédula ingresada.");
+        }
+        return lista3;
+    }
+
+    public LinkedList<Computador> ModificarRegistro3(LinkedList<Computador> lista2) {
+        String serial1 = JOptionPane.showInputDialog("Ingrese el serial al cual se le modificará la marca");
+        JOptionPane.showMessageDialog(null, "Buscando el equpo " + serial1 + " para modificar su marca");
+        boolean MarcaEncontrada = false;
+        for (Computador CP : lista2) {
+            if (CP.getSerial().equals(serial1)) {
+                MarcaEncontrada = true;
+                String nuevaMarca = JOptionPane.showInputDialog("Ingrese la marca a cambiar");
+                CP.setMarca(nuevaMarca);
+                JOptionPane.showMessageDialog(null, "Marca modificada exitosamente a: " + nuevaMarca);
+                break;
+            }
+            if (!MarcaEncontrada) {
+                JOptionPane.showMessageDialog(null, "No se encontró un equipo con la marca ingresada.");
+            }
+        }
+        return lista2;
+    }
+
+    public LinkedList<Tableta> ModificarRegistro4(LinkedList<Tableta> lista4) {
+        String serial2 = JOptionPane.showInputDialog("Ingrese el serial al cual se le modificará la marca");
+        JOptionPane.showMessageDialog(null, "Buscando el equpo " + serial2 + " para modificar su marca");
+        boolean MarcaEncontrada = false;
+        for (Tableta TB : lista4) {
+            if (TB.getSerial().equals(serial2)) {
+                MarcaEncontrada = true;
+                String nuevaMarca = JOptionPane.showInputDialog("Ingrese la marca a cambiar");
+                TB.setMarca(nuevaMarca);
+                JOptionPane.showMessageDialog(null, "Marca modificada exitosamente a: " + nuevaMarca);
+                break;
+            }
+            if (!MarcaEncontrada) {
+                JOptionPane.showMessageDialog(null, "No se encontró un equipo con la marca ingresada.");
+            }
+        }
+        return lista4;
     }
 }

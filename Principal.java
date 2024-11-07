@@ -17,7 +17,8 @@ public class Principal {
                     "Seleccione una opción \n" + "Opción 1: Llenar listas \n" +
                     "Opción 2: Mostrar listas \n" +
                     "Opción 3: Importar listas \n" + "Opción 4: Exportar listas\n"
-                    + "Opción 5: Modificar nombre o marca de las listas \n" + "Opción 6: ABIERTA \n" + "Opción 9: Salir del sistema."));
+                    + "Opción 5: Modificar nombre o marca de las listas \n" + "Opción 6: ABIERTA \n"
+                    + "Opción 9: Salir del sistema."));
             switch (seleccion_opcion) {
                 case 1: // Llenar lista estudiantes ingenieria
                     boolean bandera1 = true;
@@ -169,7 +170,7 @@ public class Principal {
                                         "Seleccione una opción \n" + "Opción 1: Modificar estudiantes Ing. \n" +
                                         "Opción 2: Modificar estudiantes Diseño \n" +
                                         "Opción 3: Modificar (marca) computadores \n"
-                                        + "Opción 4: ]Modificar (marca)tabletas\n"
+                                        + "Opción 4: Modificar (marca)tabletas\n"
                                         + "Opción 5: Volver al menú \n"));
                         switch (seleccion_opcion6) {
                             case 1:
@@ -177,12 +178,15 @@ public class Principal {
                                 bandera5 = false;
                                 break;
                             case 2:
+                                m.ModificarRegistro2(lista3);
                                 bandera5 = false;
                                 break;
                             case 3:
+                                m.ModificarRegistro3(lista2);
                                 bandera5 = false;
                                 break;
                             case 4:
+                                m.ModificarRegistro4(lista4);
                                 bandera5 = false;
                                 break;
                             case 5:
