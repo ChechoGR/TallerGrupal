@@ -742,4 +742,8 @@ public class Metodos {
         LinkedList<EstudianteIng> lista1 = i1.ImportarA1();
         return lista1;
     }
+    public void Exportar1(LinkedList<EstudianteIng> lista1){
+        Exportar1 e1 = new Exportar1();
+        e1.Exportararchivo1(lista1);
+    }
 }

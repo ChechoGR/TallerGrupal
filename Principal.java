@@ -141,6 +141,7 @@ public class Principal {
                                         + "Opción 5: Volver al menú \n"));
                         switch (seleccion_opcion5) {
                             case 1:
+                                m.Exportar1(lista1);
                                 bandera4 = false;
                                 break;
                             case 2:
