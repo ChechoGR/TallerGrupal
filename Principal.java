@@ -11,6 +11,7 @@ public class Principal {
         LinkedList<EstudianteDis> lista3 = new LinkedList<>();
         LinkedList<Tableta> lista4 = new LinkedList<>();
         LinkedList<Prestamo1> listap = new LinkedList<>();
+        LinkedList<Prestamo2> listad = new LinkedList<>();
         boolean bandera = true;
         while (bandera) {
             int seleccion_opcion = Integer.parseInt(JOptionPane.showInputDialog(null, "MENU PRINCIPAL \n" +
@@ -211,6 +212,7 @@ public class Principal {
                                 bandera6 = false;
                                 break;
                             case 2:
+                                m.RegistrarPrestamo2(lista3, lista4, listad);
                                 bandera6 = false;
                                 break;
                             case 3:
@@ -255,6 +257,9 @@ public class Principal {
                     JOptionPane.showMessageDialog(null, "Finalizando el programa \n" + "Vuelva pronto!");
                     bandera = false;
 
+                    break;
+                default:
+                    JOptionPane.showMessageDialog(null, "Opción no válida. Intente de nuevo.");
                     break;
             }
         }
