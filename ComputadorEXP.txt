@@ -1,0 +1,16 @@
+El serial es CX1
+Marca: ASUS
+Memoria de: 11.0
+Precio: 10.0
+Sistema operativo: Windows 7
+Procesador del equipo: AMD Ryzen
+¿Equipo prestado? false
+------------------------------------------------------ 
+El serial es CX2
+Marca: APPLE
+Memoria de: 15.0
+Precio: 20.0
+Sistema operativo: Windows 10
+Procesador del equipo: Intel® Core™ i5
+¿Equipo prestado? false
+------------------------------------------------------ 

@@ -1,0 +1,24 @@
+Cedula: 1020469862
+Nombre: Sergio
+Apellido: Giraldo
+Telefono: 3226787722
+Semestre: 3
+Promedio académico: 4.0
+Serial: NO PRESTADO
+------------------------------------------------------ 
+Cedula: 1020469863
+Nombre: Jose
+Apellido: Giraldo
+Telefono: 3054070053
+Semestre: 10
+Promedio académico: 5.0
+Serial: NO PRESTADO
+------------------------------------------------------ 
+Cedula: 19292
+Nombre: Esperancita
+Apellido: Giraldo
+Telefono: 311222
+Semestre: 1
+Promedio académico: 3.0
+Serial: NO PRESTADO
+------------------------------------------------------ 

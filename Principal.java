@@ -19,8 +19,8 @@ public class Principal {
                     "Seleccione una opción \n" + "Opción 1: Llenar listas \n" +
                     "Opción 2: Mostrar listas \n" +
                     "Opción 3: Importar listas \n" + "Opción 4: Exportar listas\n"
-                    + "Opción 5: Modificar nombre o marca de las listas \n" + "Opción 6: Inventario préstamos \n"
-                    + "Opción 9: Salir del sistema."));
+                    + "Opción 5: Modificar nombre o marca de las listas \n" + "Opción 6: Realizar préstamos \n"
+                    + "Opción 7: Ver inventario de préstamos \n" +"Opción 9: Salir del sistema."));
             switch (seleccion_opcion) {
                 case 1: // Llenar lista estudiantes ingenieria
                     boolean bandera1 = true;
@@ -119,6 +119,7 @@ public class Principal {
 
                                 break;
                             case 4:
+                                lista4 = m.Importar4();
                                 bandera3 = false;
 
                                 break;
@@ -152,9 +153,11 @@ public class Principal {
                                 bandera4 = false;
                                 break;
                             case 3:
+                                m.Exportar3(lista2);
                                 bandera4 = false;
                                 break;
                             case 4:
+                                m.Exportar4(lista4);
                                 bandera4 = false;
                                 break;
                             case 5:

@@ -1,0 +1,16 @@
+Cedula: 70554615
+Nombre: William
+Apellido: Giraldo
+Telefono: 3146431272
+Modalidad: Virtual
+Cantidad : 3
+Serial: No cuenta aún con préstamo
+------------------------------------------------------ 
+Cedula: 43059035
+Nombre: Vicky
+Apellido: Rios
+Telefono: 3113924363
+Modalidad: Presencial
+Cantidad : 1
+Serial: No cuenta aún con préstamo
+------------------------------------------------------ 

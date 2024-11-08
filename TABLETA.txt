@@ -1,0 +1,16 @@
+El serial es TX1
+Marca: AZA
+Tamaño pantalla: 11.0
+Precio: 20.0
+Almacenamiento: 1 TB
+Peso: 2.0
+¿Equipo prestado? false
+------------------------------------------------------ 
+El serial es TX2
+Marca: ASA
+Tamaño pantalla: 13.0
+Precio: 50.0
+Almacenamiento: 512 GB
+Peso: 3.0
+¿Equipo prestado? false
+------------------------------------------------------ 

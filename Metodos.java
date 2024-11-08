@@ -243,7 +243,7 @@ public class Metodos {
             JOptionPane.showMessageDialog(null, "La lista está vacía");
         } else {
             for (Computador CP : lista2) {
-                JOptionPane.showMessageDialog(null, "El serial es " + CP.getSerial() + "\n"
+                JOptionPane.showMessageDialog(null, "Cedula: " + CP.getSerial() + "\n"
                         + "Marca: " + CP.getMarca() + "\n"
                         + "Memoria de: " + CP.getTamaño() + "\n"
                         + "Precio: " + CP.getPrecio() + "\n"
@@ -673,8 +673,8 @@ public class Metodos {
         } else {
             for (Prestamo1 PS1 : listap) {
                 JOptionPane.showMessageDialog(null,
-                        "Prestamos: \n" + "Nombre estudiante: \n" + PS1.getEstudianteIng().getNombre()
-                                + "Serial del PC prestado: \n" + PS1.getComputador().getSerial());
+                        "Prestamos: \n" + "Nombre estudiante: " + PS1.getEstudianteIng().getNombre() +"\n"
+                                + "Serial del PC prestado:" + PS1.getComputador().getSerial());
             }
         }
     }
@@ -770,5 +770,18 @@ public class Metodos {
         LinkedList<Computador> lista2 = i3.ImportarA3();
         return lista2;
 
+    }
+    public LinkedList<Tableta> Importar4(){
+        Importar2 i4 = new Importar2();
+        LinkedList<Tableta> lista4 = i4.ImportarA4();
+        return lista4;
+    }
+    public void Exportar3(LinkedList<Computador> lista2){
+        Exportar1 e3 = new Exportar1();
+        e3.ExportarArchivo3(lista2);
+    }
+    public void Exportar4(LinkedList<Tableta> lista4){
+        Exportar2 e4 = new Exportar2();
+        e4.ExportarArchivo4(lista4);
     }
 }
