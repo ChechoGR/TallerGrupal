@@ -58,4 +58,55 @@ public class Importar2 {
         }
     return lista3;
     }
+     public LinkedList<Tableta> ImportarA4() {
+        String Ruta4 = "TABLETAIMP.txt";
+        LinkedList<Tableta> lista4 = new LinkedList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(Ruta4))) {
+            String linea;
+            Tableta TA = null;
+            while ((linea = br.readLine()) != null) {
+                if (linea.startsWith("El serial es ")) {
+                    if (TA != null) {
+                        lista4.add(TA);
+                    }
+                    TA = new Tableta();
+                    TA.setSerial(linea.substring(13));
+
+                } else if (linea.startsWith("Marca: ")) {
+                    if (TA != null) {
+                        TA.setMarca(linea.substring(7));
+                    }
+                } else if (linea.startsWith("Tamaño: ")) {
+                    if (TA != null) {
+                        TA.setTamaño(Float.parseFloat(linea.substring(12)));
+                    }
+                } else if (linea.startsWith("Precio: ")) {
+                    if (TA != null) {
+                        TA.setPrecio(Float.parseFloat(linea.substring(8)));
+                    }
+                } else if (linea.startsWith("Peso: ")) {
+                    if (TA != null) {
+                        TA.setPeso(Float.parseFloat(linea.substring(0)));
+                    }
+                } else if (linea.startsWith("Almacenamiento: ")) {
+                    if (TA != null) {
+                        TA.setAlmacenamiento(linea.substring(23));
+                    }
+                } else if (linea.startsWith("¿Equipo prestado? ")) {
+                    if (TA != null) {
+                        TA.setPrestamo(false);
+                        lista4.add(TA);
+                    }
+                }
+            }
+
+            if (TA != null) {
+                lista4.add(TA);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al importar archivo");
+            return lista4;
+        }
+        return lista4;
+    }
 }
